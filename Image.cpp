@@ -38,6 +38,17 @@ void Image::SetPixel(const int x, const int y, const double red, const double gr
 	m_bChannel[x][y] = blue;
 }
 
+//Function to return the dimensions of the image
+int Image::GetXSize()
+{
+	return m_xSize;
+}
+
+int Image::GetYSize()
+{
+	return m_ySize;
+}
+
 //Function to generate the display
 void Image::Display()
 {
@@ -114,3 +125,4 @@ Uint32 Image::ConvertColor(const double red, const double green, const double bl
 #endif
 	return pixelColor;
 }
+

@@ -1,4 +1,5 @@
 #include "CApp.h"
+#include "Vector.h"
 
 //Default constructor
 CApp::CApp()
@@ -33,17 +34,29 @@ bool CApp::OnInit()
 	//Initialize the Image instance
 	m_image.Initialize(1280, 720, pRenderer);
 
-	//Create colour variations
-	for (int i = 0; i < 1280; ++i)
-	{
-		for (int j = 0; j < 720; ++j)
-		{
-			double red = static_cast<double>(i) / 1280.0;
-			double green = static_cast<double>(j) / 720.0;
-			double blue = 0.2;
-			m_image.SetPixel(i, j, red, green, blue);
-		}
-	}
+	//Test the camera class
+	RT::Camera testCamera;
+	testCamera.SetPosition(Vector<double>({ std::vector<double>{0.0, 0.0, 0.0} }));
+	testCamera.SetLookAt(Vector<double>({ std::vector<double>{0.0, 2.0, 0.0} }));
+	testCamera.SetUp(Vector<double>({ std::vector<double>{0.0, 0.0, 1.0} }));
+	testCamera.SetLenght(1.0);
+	testCamera.SetHorizontalSize(1.0);
+	testCamera.setAspectRatio(1.0);
+	testCamera.UpdateCameraGeometry();
+
+	//Get the screen center and U, V vectors
+	auto screenCenter = testCamera.GetScreenCenter();
+	auto screenU = testCamera.GetU();
+	auto screenV = testCamera.GetV();
+
+	//And display to the terminal
+	std::cout << "Camera screen center: " << std::endl;
+	PrintVector(screenCenter);
+	std::cout << "Camera screen U vector: " << std::endl;
+	PrintVector(screenU);
+	std::cout << "Camera screen V vector: " << std::endl;
+	PrintVector(screenV);
+
 
 	return true;
 }
@@ -93,6 +106,9 @@ void CApp::OnRender()
 	SDL_SetRenderDrawColor(pRenderer, 255, 248, 231, 255);
 	SDL_RenderClear(pRenderer);
 
+	//Render the scene to the image
+	m_scene.Render(m_image);
+
 	//Display the image
 	m_image.Display();
 
@@ -116,6 +132,16 @@ void CApp::OnExit()
 	}
 	//Quit SDL subsystems
 	SDL_Quit();
+}
+
+//Private functions
+void CApp::PrintVector(const Vector<double>& inputVector)
+{
+	int nRows = inputVector.GetNumDims();
+	for (int row = 0; row < nRows; ++row)
+	{
+		std::cout << std::fixed << std::setprecision(6) << inputVector.GetElement(row) << std::endl;
+	}
 }
 
 

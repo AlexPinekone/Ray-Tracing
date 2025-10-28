@@ -1,5 +1,16 @@
 ﻿  CApp.cpp
-D:\Projekte\Ray-Tracing\CApp.cpp(12,14): warning C4804: '<': unsafe use of type 'bool' in operation
+D:\Projekte\Ray-Tracing\CApp.cpp(13,14): warning C4804: '<': unsafe use of type 'bool' in operation
+D:\Projekte\Ray-Tracing\Vector.h(117,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'CApp.cpp')
+      D:\Projekte\Ray-Tracing\Vector.h(117,26):
+      the template instantiation context (the oldest one first) is
+          D:\Projekte\Ray-Tracing\ray.hpp(16,18):
+          see reference to class template instantiation 'Vector<double>' being compiled
+          D:\Projekte\Ray-Tracing\Vector.h(116,1):
+          while compiling class template member function 'Vector<double>::Vector(std::vector<double,std::allocator<double>>)'
+              D:\Projekte\Ray-Tracing\CApp.cpp(39,24):
+              see the first reference to 'Vector<double>::Vector' in 'CApp::OnInit'
+  
   main.cpp
   Generating Code...
   RayTracing.vcxproj -> D:\Projekte\Ray-Tracing\x64\Debug\RayTracing.exe

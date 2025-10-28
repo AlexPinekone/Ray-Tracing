@@ -27,12 +27,33 @@
     <ClCompile Include="Image.cpp">
       <Filter>Source Files\RayTrace</Filter>
     </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>Source Files\RayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="ray.cpp">
+      <Filter>Source Files\RayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files\RayTrace</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CApp.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Image.hpp">
+      <Filter>Source Files\RayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.hpp">
+      <Filter>Source Files\RayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="ray.hpp">
+      <Filter>Source Files\RayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Source Files\RayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.hpp">
       <Filter>Source Files\RayTrace</Filter>
     </ClInclude>
   </ItemGroup>
