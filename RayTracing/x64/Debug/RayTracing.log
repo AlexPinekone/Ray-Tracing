@@ -1,3 +1,5 @@
 ﻿  CApp.cpp
 D:\Projekte\Ray-Tracing\CApp.cpp(12,14): warning C4804: '<': unsafe use of type 'bool' in operation
+  main.cpp
+  Generating Code...
   RayTracing.vcxproj -> D:\Projekte\Ray-Tracing\x64\Debug\RayTracing.exe

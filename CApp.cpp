@@ -29,6 +29,22 @@ bool CApp::OnInit()
 		SDL_Log("No se pudo crear el renderer: %s", SDL_GetError());
 		return false;
 	}
+
+	//Initialize the Image instance
+	m_image.Initialize(1280, 720, pRenderer);
+
+	//Create colour variations
+	for (int i = 0; i < 1280; ++i)
+	{
+		for (int j = 0; j < 720; ++j)
+		{
+			double red = static_cast<double>(i) / 1280.0;
+			double green = static_cast<double>(j) / 720.0;
+			double blue = 0.2;
+			m_image.SetPixel(i, j, red, green, blue);
+		}
+	}
+
 	return true;
 }
 
@@ -76,6 +92,10 @@ void CApp::OnRender()
 	//Clear screen with a color
 	SDL_SetRenderDrawColor(pRenderer, 255, 248, 231, 255);
 	SDL_RenderClear(pRenderer);
+
+	//Display the image
+	m_image.Display();
+
 	//Present renderer
 	SDL_RenderPresent(pRenderer);
 }
